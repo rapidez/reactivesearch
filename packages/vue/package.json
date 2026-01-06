@@ -21,13 +21,15 @@
 		"watch": "nps watch",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
+		"build-es": "nps build.es",
 		"start": "nps",
 		"pretest": "nps build",
 		"test": "nps test",
 		"precommit": "lint-staged",
 		"prepare": "npm start validate",
 		"version-upgrade": "nps upgrade-vue -c ../../package-scripts.js",
-		"postpublish": "yarn run version-upgrade"
+		"postpublish": "yarn run version-upgrade",
+		"prepack": "yarn install --ignore-scripts && yarn run build-es"
 	},
 	"files": [
 		"dist"
@@ -85,5 +87,8 @@
 		"rollup-plugin-terser": "^5.1.1",
 		"rollup-plugin-vue": "^6.0.0",
 		"vue-eslint-parser": "^3.2.2"
+	},
+	"volta": {
+		"node": "17.9.1"
 	}
 }
